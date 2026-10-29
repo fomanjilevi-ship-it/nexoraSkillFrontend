@@ -6,10 +6,12 @@ import DashboardLayout from '@/layouts/DashboardLayout'
 import Home from '@/pages/Home'
 import Courses from '@/pages/Courses'
 import CourseDetail from '@/pages/CourseDetail'
+import Playground from '@/pages/Playground'
 import Login from '@/pages/Login'
 import Register from '@/pages/Register'
 import Learn from '@/pages/Learn'
 import StudentDashboard from '@/pages/StudentDashboard'
+import MyCode from '@/pages/MyCode'
 import InstructorDashboard from '@/pages/InstructorDashboard'
 import AdminDashboard from '@/pages/AdminDashboard'
 import NotFound from '@/pages/NotFound'
@@ -21,6 +23,7 @@ export const router = createBrowserRouter([
       { path: '/', element: <Home /> },
       { path: '/courses', element: <Courses /> },
       { path: '/courses/:slug', element: <CourseDetail /> },
+      { path: '/atelier', element: <Playground /> },
       { path: '/login', element: <Login /> },
       { path: '/register', element: <Register /> },
     ],
@@ -29,6 +32,7 @@ export const router = createBrowserRouter([
     element: <DashboardLayout />,
     children: [
       { path: '/dashboard', element: <StudentDashboard /> },
+      { path: '/mes-codes', element: <MyCode /> },
       { path: '/instructor', element: <InstructorDashboard /> },
       { path: '/admin', element: <AdminDashboard /> },
     ],

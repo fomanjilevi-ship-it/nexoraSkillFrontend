@@ -3,29 +3,30 @@ import { Link, Outlet } from "react-router-dom";
 export default function PublicLayout() {
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="border-b bg-black fixed top-0 left-0 w-full">
-        <nav className="mx-auto flex max-w-7xl items-center justify-between  px-1 py-4">
-          <Link to="/" className="text-xl font-bold text-indigo-600">
-            nexoraLearn
+      <header className="sticky top-0 z-50 w-full border-b border-[#262626] bg-[#09090b]">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
+          <Link to="/" className="shrink-0 text-lg font-semibold tracking-tight text-zinc-100">
+            nexora<span className="text-zinc-500">Learn</span>
           </Link>
-          <div className="flex items-center gap-6 text-sm font-medium">
-            <Link to="/courses">Cours</Link>
-            <Link to="/login">Connexion</Link>
+          <div className="flex items-center gap-3 text-xs font-medium text-zinc-400 sm:gap-6 sm:text-sm">
+            <Link to="/courses" className="transition-colors hover:text-white">Cours</Link>
+            <Link to="/atelier" className="hidden transition-colors hover:text-white sm:inline">Atelier</Link>
+            <Link to="/login" className="transition-colors hover:text-white">Connexion</Link>
             <Link
               to="/register"
-              className="rounded-lg bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-700"
+              className="rounded-lg bg-zinc-100 px-3 py-2 text-xs font-semibold text-black transition-colors hover:bg-white sm:px-4 sm:text-sm"
             >
-              S'inscrire
+              S’inscrire
             </Link>
           </div>
         </nav>
       </header>
 
-      <main className="mx-auto w-full max-w-7xl flex-1 px-6 py-8 mt-18">
+      <main className="mx-auto w-full max-w-7xl flex-1 px-6 py-8">
         <Outlet />
       </main>
 
-      <footer className="border-t py-6 text-center text-sm text-gray-500 fixed bottom-0 bg-black  left-0 w-full mt-6" >
+      <footer className="mt-6 border-t border-[#262626] bg-[#09090b] py-6 text-center text-xs text-zinc-600">
         © 2026 nexora. Tous droits réservés.
       </footer>
     </div>

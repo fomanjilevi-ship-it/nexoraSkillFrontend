@@ -19,7 +19,7 @@ export default function Home() {
 
       <section>
         <h2 className="mb-4 text-2xl font-bold text-white">Cours populaires</h2>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
           {courses.slice(0, 4).map((c) => (
             <CourseCard key={c.id} course={c} />
           ))}

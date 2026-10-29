@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { BookOpen, Search, SlidersHorizontal } from "lucide-react";
+import { BookOpen, Code2, Search, SlidersHorizontal, Sparkles } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
 import CourseCard from "@/components/course/CourseCard";
 import { courses } from "@/data/courses";
@@ -57,19 +57,30 @@ export default function Courses() {
   }
 
   return (
-    <div className="space-y-8 pb-12">
-      <header className="rounded-2xl bg-gradient-to-br from-indigo-950 via-slate-950 to-black px-6 py-10 sm:px-10">
-        <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-indigo-300">
-          Apprendre à votre rythme
-        </p>
-        <h1 className="text-3xl font-bold text-white sm:text-4xl">Explorer les cours</h1>
-        <p className="mt-3 max-w-2xl text-slate-300">
-          Des parcours pratiques en développement web, mobile et en design,
-          conçus pour vous faire progresser étape par étape.
-        </p>
-        <div className="mt-6 flex items-center gap-2 text-sm text-indigo-200">
-          <BookOpen size={17} aria-hidden="true" />
-          {courses.length} cours disponibles
+    <div className="space-y-9 pb-16">
+      <header className="rounded-xl border border-[#29292e] bg-[#101012] px-6 py-9 sm:px-10 sm:py-12">
+        <div className="max-w-3xl">
+          <p className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-zinc-500">
+            <Sparkles size={14} aria-hidden="true" />
+            Nexora Learn / Catalogue
+          </p>
+          <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+            Apprendre, construire, <span className="text-zinc-500">progresser.</span>
+          </h1>
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-zinc-400 sm:text-base">
+            Explorez des cours pratiques en développement web, mobile et design.
+            Apprenez les outils du métier et créez des projets concrets.
+          </p>
+          <div className="mt-7 flex flex-wrap gap-3">
+            <span className="inline-flex items-center gap-2 rounded-lg border border-[#303036] bg-[#17171a] px-3 py-2 text-sm font-medium text-zinc-300">
+              <BookOpen size={16} className="text-zinc-400" aria-hidden="true" />
+              {courses.length} cours
+            </span>
+            <span className="inline-flex items-center gap-2 rounded-lg border border-[#303036] bg-[#17171a] px-3 py-2 text-sm font-medium text-zinc-300">
+              <Code2 size={16} className="text-zinc-400" aria-hidden="true" />
+              Web & mobile
+            </span>
+          </div>
         </div>
       </header>
 
@@ -89,22 +100,22 @@ export default function Courses() {
             value={query}
             onChange={(event) => updateSearch(event.target.value)}
             placeholder="Rechercher un cours, une catégorie ou un formateur…"
-            className="w-full rounded-xl border border-gray-700 bg-gray-950 py-3 pl-11 pr-4 text-white placeholder:text-gray-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/30"
+            className="w-full rounded-xl border border-[#303036] bg-[#101012] py-3.5 pl-12 pr-4 text-white placeholder:text-zinc-600 focus:border-zinc-500 focus:outline-none focus:ring-2 focus:ring-zinc-500/20"
           />
         </div>
 
-        <div className="flex flex-col gap-3 rounded-xl border border-gray-800 bg-gray-950/70 p-4 lg:flex-row lg:items-center">
-          <div className="flex items-center gap-2 text-sm font-semibold text-gray-300">
-            <SlidersHorizontal size={17} aria-hidden="true" />
-            Filtres
+        <div className="flex flex-col gap-4 rounded-xl border border-[#29292e] bg-[#101012] p-4 sm:p-5 lg:flex-row lg:items-center">
+          <div className="flex shrink-0 items-center gap-2 text-sm font-medium text-zinc-300">
+            <SlidersHorizontal size={17} className="text-zinc-500" aria-hidden="true" />
+            Affiner les résultats
           </div>
-          <div className="grid flex-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid flex-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
             <label className="sr-only" htmlFor="category-filter">Catégorie</label>
             <select
               id="category-filter"
               value={category}
               onChange={(event) => setCategory(event.target.value)}
-              className="rounded-lg border border-gray-700 bg-black px-3 py-2 text-sm text-white focus:border-indigo-500 focus:outline-none"
+              className="rounded-lg border border-[#303036] bg-[#09090b] px-3 py-2.5 text-sm text-zinc-300 focus:border-zinc-500 focus:outline-none focus:ring-2 focus:ring-zinc-500/20"
             >
               <option>Toutes les catégories</option>
               {categories.map((item) => <option key={item}>{item}</option>)}
@@ -115,7 +126,7 @@ export default function Courses() {
               id="level-filter"
               value={level}
               onChange={(event) => setLevel(event.target.value)}
-              className="rounded-lg border border-gray-700 bg-black px-3 py-2 text-sm text-white focus:border-indigo-500 focus:outline-none"
+              className="rounded-lg border border-[#303036] bg-[#09090b] px-3 py-2.5 text-sm text-zinc-300 focus:border-zinc-500 focus:outline-none focus:ring-2 focus:ring-zinc-500/20"
             >
               <option>Tous les niveaux</option>
               {(["Débutant", "Intermédiaire", "Avancé"] satisfies Course["level"][]).map((item) => (
@@ -128,7 +139,7 @@ export default function Courses() {
               id="sort-filter"
               value={sortOrder}
               onChange={(event) => setSortOrder(event.target.value as SortOrder)}
-              className="rounded-lg border border-gray-700 bg-black px-3 py-2 text-sm text-white focus:border-indigo-500 focus:outline-none"
+              className="rounded-lg border border-[#303036] bg-[#09090b] px-3 py-2.5 text-sm text-zinc-300 focus:border-zinc-500 focus:outline-none focus:ring-2 focus:ring-zinc-500/20"
             >
               <option value="popular">Les plus suivis</option>
               <option value="rating">Les mieux notés</option>
@@ -141,7 +152,7 @@ export default function Courses() {
               type="checkbox"
               checked={freeOnly}
               onChange={(event) => setFreeOnly(event.target.checked)}
-              className="h-4 w-4 accent-indigo-500"
+              className="h-4 w-4 accent-zinc-300"
             />
             Cours gratuits
           </label>
@@ -149,22 +160,25 @@ export default function Courses() {
       </section>
 
       <section aria-live="polite">
-        <div className="mb-4 flex items-center justify-between gap-4">
-          <h2 className="text-lg font-semibold text-white">
+        <div className="mb-5 flex items-end justify-between gap-4">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-zinc-600">Le catalogue</p>
+            <h2 className="mt-1 text-xl font-bold text-white">
             {visibleCourses.length} résultat{visibleCourses.length !== 1 ? "s" : ""}
-          </h2>
+            </h2>
+          </div>
           {visibleCourses.length !== courses.length && (
             <button
               type="button"
               onClick={resetFilters}
-              className="text-sm font-medium text-indigo-300 hover:text-indigo-200"
+              className="text-sm font-medium text-zinc-400 hover:text-white"
             >
               Effacer les filtres
             </button>
           )}
         </div>
         {visibleCourses.length ? (
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid items-stretch gap-4 sm:grid-cols-2 xl:grid-cols-3">
             {visibleCourses.map((course) => <CourseCard key={course.id} course={course} />)}
           </div>
         ) : (
@@ -174,7 +188,7 @@ export default function Courses() {
             <button
               type="button"
               onClick={resetFilters}
-              className="mt-5 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-500"
+              className="mt-5 rounded-lg bg-zinc-100 px-4 py-2 text-sm font-semibold text-black hover:bg-white"
             >
               Voir tous les cours
             </button>

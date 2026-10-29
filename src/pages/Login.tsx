@@ -26,7 +26,7 @@ export default function Login() {
   return (
     <section className="mx-auto grid min-h-[min(680px,calc(100vh-12rem))] w-full max-w-5xl items-center gap-10 py-8 md:grid-cols-2 md:gap-16">
       <div className="hidden md:block">
-        <p className="mb-4 text-sm font-semibold uppercase text-indigo-300">
+        <p className="mb-4 text-sm font-semibold uppercase tracking-wide text-zinc-500">
           NexoraSkill
         </p>
         <h1 className="max-w-md text-4xl font-bold leading-tight text-white">
@@ -37,8 +37,8 @@ export default function Login() {
         </p>
       </div>
 
-      <div className="w-full max-w-md justify-self-center rounded-lg border border-white/10 bg-white/4 p-6 shadow-2xl shadow-black/20 sm:p-8">
-        <p className="text-sm font-semibold uppercase text-indigo-300 md:hidden">
+      <div className="w-full max-w-md justify-self-center rounded-xl border border-[#29292e] bg-[#101012] p-6 sm:p-8">
+        <p className="text-sm font-semibold uppercase tracking-wide text-zinc-500 md:hidden">
           NexoraSkill
         </p>
         <h2 className="mt-2 text-2xl font-bold text-white">Connexion</h2>
@@ -49,7 +49,7 @@ export default function Login() {
         {notice && (
           <p
             role="status"
-            className="mt-5 rounded-md border border-emerald-500/30 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-200"
+            className="mt-5 rounded-md border border-[#3a3a40] bg-[#19191c] px-3 py-2 text-sm text-zinc-300"
           >
             {notice}
           </p>
@@ -116,7 +116,7 @@ export default function Login() {
           Vous n’avez pas encore de compte ?{" "}
           <Link
             to="/register"
-            className="font-semibold text-indigo-300 hover:text-indigo-200"
+            className="font-semibold text-zinc-300 hover:text-white"
           >
             Créer un compte
           </Link>

@@ -23,12 +23,12 @@ export default function SearchBar() {
         value={query}
         onChange={(event) => setQuery(event.target.value)}
         placeholder="Rechercher un cours"
-        className="w-full rounded-lg border border-gray-700 bg-gray-950 py-2 pl-4 pr-11 text-sm text-white placeholder:text-gray-400 focus:border-brand-500 focus:outline-none"
+        className="w-full rounded-lg border border-[#303036] bg-[#101012] py-2 pl-4 pr-11 text-sm text-zinc-100 placeholder:text-zinc-600 focus:border-zinc-500 focus:outline-none"
       />
       <button
         type="submit"
         aria-label="Rechercher"
-        className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-300 hover:text-white"
+        className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-white"
       >
         <Search size={18} aria-hidden="true" />
       </button>

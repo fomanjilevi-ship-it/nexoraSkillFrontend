@@ -3,13 +3,31 @@
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 
-  --color-brand-50: #eef2ff;
-  --color-brand-100: #e0e7ff;
-  --color-brand-500: #6366f1;
-  --color-brand-600: #4f46e5;
-  --color-brand-700: #4338ca;
+  --color-brand-50: #f4f4f5;
+  --color-brand-100: #e4e4e7;
+  --color-brand-500: #a1a1aa;
+  --color-brand-600: #71717a;
+  --color-brand-700: #52525b;
+}
+
+html {
+  color-scheme: dark;
+  background: #09090b;
 }
 
 body {
-  @apply bg-black text-white antialiased;
+  @apply min-h-screen bg-[#09090b] text-zinc-100 antialiased;
+}
+
+::selection {
+  background: #3f3f46;
+  color: #fafafa;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
 }
