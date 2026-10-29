@@ -10,6 +10,9 @@ export interface Course {
   price: number
   level: 'Débutant' | 'Intermédiaire' | 'Avancé'
   category: string
+  technology?: string
+  technologyLogos?: string[]
+  technologyLogoColors?: string[]
+  technologyColor?: string
   bestseller?: boolean
 }
-

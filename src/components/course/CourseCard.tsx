@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Users } from 'lucide-react'
+import { BookOpen, Users } from 'lucide-react'
 import type { Course } from '@/types/course'
 import Badge from '@/components/ui/Badge'
 import StarRating from '@/components/ui/StarRating'
@@ -9,7 +9,7 @@ export default function CourseCard({ course }: { course: Course }) {
   return (
     <Link
       to={`/courses/${course.slug}`}
-      className="group flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white transition hover:shadow-lg"
+      className="group flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white text-gray-900 transition hover:-translate-y-0.5 hover:shadow-lg"
     >
       {/* Miniature */}
       {course.thumbnail ? (
@@ -19,7 +19,32 @@ export default function CourseCard({ course }: { course: Course }) {
           className="aspect-video w-full object-cover"
         />
       ) : (
-        <div className="aspect-video w-full bg-gradient-to-br from-brand-500 to-purple-500" />
+        <div className="relative flex aspect-video w-full items-center justify-center bg-gradient-to-br from-gray-950 to-gray-800 text-white">
+          {course.technologyLogos?.length ? (
+            <div className="flex items-center justify-center gap-5">
+              {course.technologyLogos.map((logo, index) => (
+                <img
+                  key={logo}
+                  src={`https://cdn.simpleicons.org/${logo}/${course.technologyLogoColors?.[index] ?? course.technologyColor ?? "6366F1"}`}
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                  className="h-14 w-14 object-contain"
+                  onError={(event) => {
+                    event.currentTarget.style.display = "none";
+                  }}
+                />
+              ))}
+            </div>
+          ) : (
+            <BookOpen size={36} strokeWidth={1.5} aria-hidden="true" />
+          )}
+          {course.technology && (
+            <span className="absolute bottom-3 left-0 right-0 text-center text-sm font-semibold text-white/90">
+              {course.technology}
+            </span>
+          )}
+        </div>
       )}
 
       <div className="flex flex-1 flex-col gap-2 p-4">

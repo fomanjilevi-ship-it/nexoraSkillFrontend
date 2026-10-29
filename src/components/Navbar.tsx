@@ -14,7 +14,7 @@ export default function Navbar() {
       <nav className="mx-auto flex max-w-7xl items-center gap-6 px-6 py-3">
         <Link to="/" className="flex items-center gap-2 text-xl font-bold text-brand-600">
           <GraduationCap size={28} />
-          EduLearn
+          nexoralearn
         </Link>
 
         <NavLink to="/courses" className={`${linkClass} hidden md:block`}>
